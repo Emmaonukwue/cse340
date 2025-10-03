@@ -13,11 +13,6 @@ const static = require("./routes/static")
 
 const path = require('path')
 
-//Index route
-//Express app watches the get object within the http request, identifies the "/" for the index or default route
-app.get("/", function(req, res){ //function that handles the request and the response objects
-  res.render("index", {title:"Home"}) //The response returned to the browser is the index page with the tile of Home
-})
 
 
 /* ***********************
@@ -33,6 +28,13 @@ app.set("layout", "./layouts/layout") //Direct the application to look for EJS t
  * Routes
  *************************/
 app.use(static)
+
+//Index route
+//Express app watches the get object within the http request, identifies the "/" for the index or default route
+app.get("/", function(req, res){ //function that handles the request and the response objects
+  res.render("index", {title:"Home"}) //The response returned to the browser is the index page with the tile of Home
+})
+
 
 /* ***********************
  * Local Server Information
