@@ -10,7 +10,6 @@ const expressLayouts = require("express-ejs-layouts")
 const env = require("dotenv").config()
 const app = express()
 const static = require("./routes/static")
-const expressEjsLayouts = require("express-ejs-layouts")
 
 const path = require('path')
 
@@ -25,7 +24,7 @@ app.get("/", function(req, res){ //function that handles the request and the res
  * View Engine and Templates
  *************************/
 app.set("view engine", "ejs") //Set EJS as the view engine
-app.use(expressEjsLayouts) //Tell the application to use EJS
+app.use(expressLayouts) //Tell the application to use EJS
 app.set("layout", "./layouts/layout") //Direct the application to look for EJS template views in the layouts folder
 
 
