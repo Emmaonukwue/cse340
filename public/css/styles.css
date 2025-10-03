@@ -20,6 +20,7 @@ a {
 
 h1, h2 {
   color: #111;
+  text-align: left;
 }
 
 /* ===== Header ===== */
@@ -37,13 +38,6 @@ h1, h2 {
   color: #0077cc;
 }
 
-/*
-#tools a {
-  font-size: .9rem;
-  font-weight: bold;
-  color: #444;
-}
-*/
 
 #tools a {
   display: inline-block;
@@ -54,7 +48,6 @@ h1, h2 {
   font-weight: bold;
   font-size: 0.9rem;
   text-decoration: none;
-  transition: background 0.3s ease, transform 0.2s ease;
 }
 
 #tools a:hover {
@@ -173,6 +166,15 @@ nav li:hover {
   display: block;
   padding: 10px;
 }
+
+
+.upgrade-grid a {
+  font-size: .9rem;
+  font-weight: bold;
+  color: #0077cc;
+  text-decoration: underline;
+}
+
 
 /* ===== Footer ===== */
 footer {
