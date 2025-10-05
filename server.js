@@ -56,11 +56,12 @@ app.use(async (err, req, res, next) => {
   const errorMessage = err.message || JSON.stringify(err)
   console.error(`Error at: "${req.originalUrl}" - ${errorMessage}`)
   res.render("errors/error", {
-    title: err.status || 'Server Error',
-    message: err.message,
+    title: err.status ? `Error ${err.status}` : 'Server Error',
+    message: errorMessage,
     nav
   })
 })
+
 
 // File Not Found Route - must be last route in list
 app.use(async (req, res, next) => {
