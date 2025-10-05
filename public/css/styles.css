@@ -68,7 +68,7 @@ nav ul {
   background: #222;
 }
 
-nav li {
+nav ul li {
   padding: .75rem 1rem;
   color: #fff;
   font-weight: bold;
@@ -176,6 +176,55 @@ nav li:hover {
 }
 
 
+/* ===== Inventory ===== */
+#inv-display {
+  display: grid;
+  grid-template-columns: 1fr; /* always 2 per row */
+  gap: 1rem;
+  text-align: center;
+}
+
+#inv-display li {
+  background-color:#0077cc; /* background for each upgrade card */
+  padding: 1rem;
+  border-radius: .5rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+#inv-display h2,span {
+  text-align: center;
+  font-weight: bold;
+  color: #fff;
+}
+
+#inv-display a {
+  color: #fff;
+  text-decoration: underline;
+}
+
+
+/* ===== Vehicle Detail ===== */
+#vehicle-details {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background-color: #f8f8f8;
+  padding: 1rem;
+  border-radius: .5rem;
+}
+
+#vehicle-details img {
+  width: 100%;
+  max-width: 500px;
+  border-radius: .5rem;
+}
+
+.vehicle-info p {
+  margin: 0.3rem 0;
+  font-size: 1rem;
+  color: #333;
+}
+
 /* ===== Footer ===== */
 footer {
   margin-top: 2rem;
@@ -216,5 +265,22 @@ footer {
 
   .upgrade-grid {
     grid-template-columns: 1fr 1fr; /* still 2 per row */
+  }
+
+  #inv-display {
+  grid-template-columns: 1fr 1fr; /* always 2 per row */
+  }
+
+
+  #vehicle-details {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  #vehicle-details img {
+    flex: 1;
+  }
+  .vehicle-info {
+    flex: 1;
+    padding: 0 1.5rem;
   }
 }

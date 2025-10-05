@@ -11,6 +11,12 @@ const env = require("dotenv").config()
 const app = express()
 const static = require("./routes/static")
 
+const baseController = require("./controllers/baseController")
+
+const inventoryRoute = require("./routes/inventoryRoute")
+
+const utilities = require("./utilities")
+
 const path = require('path')
 
 
@@ -31,9 +37,36 @@ app.use(static)
 
 //Index route
 //Express app watches the get object within the http request, identifies the "/" for the index or default route
+/*
 app.get("/", function(req, res){ //function that handles the request and the response objects
   res.render("index", {title:"Home"}) //The response returned to the browser is the index page with the tile of Home
 })
+*/
+app.get("/", baseController.buildHome);
+
+// Inventory routes
+app.use("/inv", inventoryRoute)
+
+/* ***********************
+* Express Error Handler
+* Place after all other middleware
+*************************/
+app.use(async (err, req, res, next) => {
+  let nav = await utilities.getNav()
+  const errorMessage = err.message || JSON.stringify(err)
+  console.error(`Error at: "${req.originalUrl}" - ${errorMessage}`)
+  res.render("errors/error", {
+    title: err.status || 'Server Error',
+    message: err.message,
+    nav
+  })
+})
+
+// File Not Found Route - must be last route in list
+app.use(async (req, res, next) => {
+  next({status: 404, message: 'Sorry, we appear to have lost that page.'})
+})
+
 
 
 /* ***********************
